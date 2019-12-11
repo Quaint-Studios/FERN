@@ -1,0 +1,41 @@
+{
+  "name": "fern-template",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "install": "concurrently \"npm install\" \"cd functions && npm install\" \"cd react && npm install\"",
+    "buildServer": "cd functions && npm run build",
+    "watchServer": "cd functions && npm run watch",
+    "testServer": "cd functions && npm run test",
+    "buildClient": "cd react && npm run build",
+    "watchClient": "cd react && npm run watch",
+    "testClient": "cd react && npm run test",
+    "buildAll": "concurrently \"npm run buildServer\" \"npm run buildClient\"",
+    "serve": "firebase emulators:start",
+    "watchAndServe": "concurrently \"cd functions && npm run watch\" \"firebase emulators:start\"",
+    "deploy": "firebase deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quaint-Studios/FERN.git"
+  },
+  "author": "Kristopher Ali <kristopher.ali.dev@gmail.com> (https://quaintshanty.com)",
+  "contributors": [],
+  "license": "SEE LICENSE IN <LICENSE>",
+  "bugs": {
+    "url": "https://github.com/Quaint-Studios/FERN/issues"
+  },
+  "homepage": "https://github.com/Quaint-Studios/FERN#readme",
+  "dependencies": {
+    "@testing-library/react": "^9.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "concurrently": "^5.0.1",
+    "firebase-tools": "^7.9.0",
+    "ts-jest": "^24.2.0",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.3"
+  }
+}
