@@ -1,4 +1,4 @@
-#FERN
+# FERN
 **[Firebase](https://firebase.google.com/) • [Express](https://expressjs.com/) • [React](https://reactjs.org/) • [NodeJS](https://nodejs.org/)**
 
 ## Getting Started
