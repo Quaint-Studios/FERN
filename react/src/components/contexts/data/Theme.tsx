@@ -3,19 +3,19 @@ import React, { createContext, useContext, useReducer } from 'react';
 /// Interfaces & Enums
 
 /**
- * What the context will pass through useThemeValue
- * and children for calling the <JSX />.
+ * CONFIG: EXAMPLE
+ *
+ * The structure of the state.
+ *
+ * interface IState {
+ *  ...
+ * }
  */
-interface IThemeContext {
-  reducer: React.Reducer<string, IAction>;
-  initialState: string;
-  children: any;
-}
 
 /**
  * The structure of the JSX props.
  */
-interface IThemeProps {
+interface IProps {
   children: any;
 }
 
@@ -31,39 +31,53 @@ interface IAction {
   payload: string;
 }
 
-/// Configuration
-
-const initialState = 'dark';
-
-const reducer: React.Reducer<string, IAction> = (state, action) => {
-  switch (action.type) {
-    case ActionType.TOGGLE:
-      return state === 'light' ? 'dark' : 'light';
-
-    default:
-      throw new Error('Invalid theme reducer used.');
-  }
-};
+/**
+ * The structure for the Context.Provider.
+ */
+interface IProvider {
+  reducer: React.Reducer<string, IAction>;
+  initialState: string; // CONFIG: Should match your state type, same with the reducer
+  children: any;
+}
 
 /// Context
 
 /** This is the context */
-export const ThemeContext = createContext<[string, React.Dispatch<IAction>]>(
-  useReducer(reducer, initialState)
+const Context = createContext<[string, React.Dispatch<IAction>]>(
+  // tslint:disable-next-line: no-object-literal-type-assertion
+  {} as [string, React.Dispatch<IAction>]
+);
+
+const Provider = ({ reducer, initialState, children }: IProvider) => (
+  <Context.Provider value={useReducer(reducer, initialState)}>
+    {children}
+  </Context.Provider>
 );
 
 /** This is what you use to get the value */
-export const useThemeValue = () => useContext(ThemeContext);
+export const useThemeValue = () => useContext(Context);
 
 /// JSX
 
 /**
  * Context JSX
  */
-export function Theme({ children }: IThemeProps) {
+export function Theme({ children }: IProps) {
+  const initialState = 'dark';
+
+  const reducer: React.Reducer<string, IAction> = (state, action) => {
+    switch (action.type) {
+      case ActionType.TOGGLE:
+        return state === 'light' ? 'dark' : 'light';
+
+      default:
+        throw new Error('Invalid theme reducer used.');
+    }
+  };
+
   return (
-    <ThemeContext.Provider value={useReducer(reducer, initialState)}>
+    <Provider initialState={initialState} reducer={reducer}>
       {children}
-    </ThemeContext.Provider>
+    </Provider>
   );
 }
