@@ -1,4 +1,37 @@
-import React, { createContext, useContext, useReducer, useState } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
+
+/// Interfaces & Enums
+
+/**
+ * The structure of the state.
+ */
+interface INavState {
+  /** The current page that the navigator recognizes. */
+  path?: string;
+
+  /** If the navigator should be shown. */
+  hidden?: boolean;
+}
+
+/**
+ * The structure of the JSX props.
+ */
+interface INavProps {
+  children: any;
+}
+
+/**
+ * What the dispatch is allowed to do.
+ */
+enum ActionType {
+  TOGGLE = 'toggle',
+  PATH = 'path'
+}
+
+interface IAction {
+  type: ActionType;
+  payload?: string;
+}
 
 /// Configuration
 
@@ -33,39 +66,6 @@ export const NavContext = createContext<[INavState, React.Dispatch<IAction>]>(
 
 /** This is what you use to get the value */
 export const useNavValue = () => useContext(NavContext);
-
-/// Interfaces & Enums
-
-/**
- * The structure of the state.
- */
-interface INavState {
-  /** The current page that the navigator recognizes. */
-  path?: string;
-
-  /** If the navigator should be shown. */
-  hidden?: boolean;
-}
-
-/**
- * The structure of the JSX props.
- */
-interface INavProps {
-  children: any;
-}
-
-/**
- * What the dispatch is allowed to do.
- */
-enum ActionType {
-  TOGGLE = 'toggle',
-  PATH = 'path'
-}
-
-interface IAction {
-  type: ActionType;
-  payload?: string;
-}
 
 /// JSX
 

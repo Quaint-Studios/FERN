@@ -1,8 +1,9 @@
 import React from 'react';
 
+import AppLoader from './AppLoader';
+
 import { Nav } from './data/Nav';
 import { Theme } from './data/Theme';
-import AppLoader from './AppLoader';
 
 /**
  * The job of the AppContexts is to make sure

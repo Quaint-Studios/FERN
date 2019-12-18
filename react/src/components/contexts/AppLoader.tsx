@@ -10,8 +10,8 @@ import Navigator from '../navigator/Navigator';
  * that don't belong in the Switch.
  */
 export default function AppLoader() {
-  const [nav, navDispatch] = useNavValue();
-  const [theme, themeDispatch] = useThemeValue();
+  const [nav] = useNavValue();
+  const [theme] = useThemeValue();
 
   document.body.id = theme;
 
