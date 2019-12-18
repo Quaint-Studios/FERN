@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "install": "concurrently \"npm install\" \"cd functions && npm install\" \"cd react && npm install\"",
+    "install": "npx concurrently \"dir && npm install\" \"cd functions && npm install\" \"cd react && npm install\"",
     "buildServer": "cd functions && npm run build",
     "watchServer": "cd functions && npm run watch",
     "testServer": "cd functions && npm run test",
@@ -27,9 +27,6 @@
     "url": "https://github.com/Quaint-Studios/FERN/issues"
   },
   "homepage": "https://github.com/Quaint-Studios/FERN#readme",
-  "dependencies": {
-    "@testing-library/react": "^9.3.2"
-  },
   "devDependencies": {
     "@types/jest": "^24.0.23",
     "concurrently": "^5.0.1",
