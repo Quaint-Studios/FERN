@@ -1,5 +1,5 @@
 // Modules
-import * as React from 'react';
+import React from 'react';
 
 // Resources
 // import './Template.css'
