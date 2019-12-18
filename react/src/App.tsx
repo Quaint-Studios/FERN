@@ -4,11 +4,21 @@ import logo from './logo.svg';
 
 import './App.css';
 
-import AppContexts from './components/contexts/AppContexts';
+import {
+  ActionType as themeAction,
+  useThemeValue
+} from './components/contexts/data/Theme';
 
 function App() {
+  const [theme, setTheme] = useThemeValue();
+
+  const toggleTheme = () => {
+    setTheme({ type: themeAction.TOGGLE });
+  };
+
   return (
-    <AppContexts>
+    <div className={theme}>
+      <button onClick={toggleTheme}>Change theme!</button>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -25,7 +35,7 @@ function App() {
           </a>
         </header>
       </div>
-    </AppContexts>
+    </div>
   );
 }
 

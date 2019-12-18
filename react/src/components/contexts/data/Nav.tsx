@@ -23,7 +23,7 @@ interface IProps {
 /**
  * What the dispatch is allowed to do.
  */
-enum ActionType {
+export enum ActionType {
   TOGGLE = 'toggle',
   PATH = 'path'
 }
