@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { login } from './components/firebase/firebase.auth';
+
 import logo from './logo.svg';
 
 import './App.css';
@@ -19,6 +21,7 @@ function App() {
   return (
     <div className={theme}>
       <button onClick={toggleTheme}>Change theme!</button>
+      <button onClick={login}>Login!</button>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
