@@ -56,6 +56,11 @@ export const template: IEndpoint = {
   permissions: 15
 };
 
+export const users: IEndpoint = {
+  endpoint: '/users',
+  permissions: 6
+}
+
 interface IEndpoint {
   endpoint: string;
   permissions: number;
