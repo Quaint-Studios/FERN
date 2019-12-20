@@ -3,6 +3,28 @@
 
 ## Getting Started
 
+### Config
+#### Firebase
+`./firebaserc` contains the default package ID for your Firebase App. This should be changed before proceeding.
+
+`./react/src/components/firebase/firebase.config.json` is your firebase SDK config. You can find this information by going to your project's settings, scrolling down, and clicking *config*.
+
+#### React Global Hooks
+`./react/src/components/contexts/` - The *data* folder holds individual contexts. You can use both the Theme and Nav contexts as an example for creating more contexts. The Theme context shows an example of a single-value being stored. The Nav context shows an example of an object with properties. Just copy and change the values accordingly. You can also configure the `reducer` at the bottom to match your needs.
+
+#### Functions API
+`./functions/src/express/api/` To add a new API endpoint, follow the instructions below:
+- Copy express/api/v1/template and rename it to your new API endpoint.
+- Rename all files within this new folder to match your new API endpoint.
+- Rename "all" of the variables inside. Even the word "template" inside strings.
+- If your IDE hasn't automatically done this for you, rename the imports too.
+- Add your new API endpoint to both the v1.config.ts and v1.main.ts files.
+
+You are free to delete unused CRUD operations. You are also free to delete any CIAO files that are unused. The template is not strict. It's just to help you get started.
+
+All done, your API can now be reached at `{{url}}/api/v1/{{endpoint}}`
+
+
 ### Install
 `npm run install`: Runs the install script for the root package and the packages belonging to both the react and functions folders.
 
