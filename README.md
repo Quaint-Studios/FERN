@@ -4,10 +4,15 @@
 ## Getting Started
 
 ### Config
+These will help you get your project functioning for your specific Firebase App.
+
 #### Firebase
 `./firebaserc` contains the default package ID for your Firebase App. This should be changed before proceeding.
 
 `./react/src/components/firebase/firebase.config.json` is your firebase SDK config. You can find this information by going to your project's settings, scrolling down, and clicking *config*.
+
+### Usage
+This is some information on how to customize this template. It should be used as a quick way to understand how the template already functions, how to build onto it, and what you might want to remove.
 
 #### React Global Hooks
 `./react/src/components/contexts/` - The *data* folder holds individual contexts. You can use both the Theme and Nav contexts as an example for creating more contexts. The Theme context shows an example of a single-value being stored. The Nav context shows an example of an object with properties. Just copy and change the values accordingly. You can also configure the `reducer` at the bottom to match your needs.
@@ -60,12 +65,12 @@ If you have access to the Firebase project, or your own, this command will call 
 
 If you do not have access to the Firebase project, and would like to make your own, go to https://firebase.com and create one. You'll get information on how to login via the CLI. Be sure to setup your Hosting / Storage settings on the website. ***This can only be done once for this project if you're on a free-tier.*** You only need to set your server region and you're ready to go!
 
-### How can I help?
+## How can I help?
 
-#### Issues
+### Issues
 Submitting any bugs you might find [here](https://github.com/Quaint-Studios/FERN/issues) is a good way to help. The same thing applies if you have any feedback or ideas. They're always welcome.
 
-#### Pull Request
+### Pull Request
 1. Fork
 2. Clone
 3. Branch
