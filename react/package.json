@@ -1,0 +1,47 @@
+{
+  "name": "react-frontend",
+  "private": true,
+  "main": "build/index.js",
+  "scripts": {
+    "build": "craco build",
+    "watch": "craco start",
+    "test": "craco test"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "firebase": "^7.16.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@craco/craco": "^5.6.4",
+    "@testing-library/jest-dom": "^5.11.1",
+    "@testing-library/react": "^10.4.7",
+    "@testing-library/user-event": "^12.0.11",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-helmet": "^6.0.0",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/react-test-renderer": "^16.9.2",
+    "craco-alias": "^2.1.1",
+    "node-sass": "^4.14.1",
+    "react-scripts": "^3.4.1",
+    "react-test-renderer": "^16.13.1",
+    "tslint-react": "^5.0.0"
+  }
+}
