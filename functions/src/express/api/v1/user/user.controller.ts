@@ -19,8 +19,8 @@ export async function createUser(req: Request, res: Response) {
     await admin.auth().setCustomUserClaims(uid, { role });
 
     return res.status(201).send({ uid });
-  } catch (error) {
-    return handleApiError(res, error);
+  } catch (err) {
+    return handleApiError(res, err);
   }
 }
 
