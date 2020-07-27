@@ -6,6 +6,10 @@ export const template: IEndpoint = {
   endpoint: '/template'
 };
 
+export const user: IEndpoint = {
+  endpoint: '/user'
+};
+
 interface IEndpoint {
   endpoint: string;
 }
