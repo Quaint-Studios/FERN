@@ -1,10 +1,10 @@
 {
-  "extends": ["tslint:latest", "tslint-react"],
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "rules": {
     // override tslint-react rules here
     "jsx-wrap-multiline": false,
     "quotemark": [true, "single", "jsx-double"],
-    "no-implicit-dependencies": [true, "dev"],
+    "no-implicit-dependencies": false,
     "trailing-comma": false,
     "react/self-closing-comp": [
       "error",
@@ -15,6 +15,8 @@
     ],
     "no-submodule-imports": false,
     "object-literal-sort-keys": false,
-    "jsx-boolean-value": false
+    "jsx-boolean-value": false,
+    "jsx-self-close": true,
+    "ordered-imports": true
   }
 }

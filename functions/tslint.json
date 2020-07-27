@@ -1,4 +1,5 @@
 {
+  "extends": ["tslint:latest", "tslint-config-prettier"],
   "rules": {
     // CUSTOM BEGIN
 
@@ -14,6 +15,8 @@
 
     // Adds a newline at end of file
     "eofline": true,
+
+    "ordered-imports": true,
 
     // CUSTOM END
 
