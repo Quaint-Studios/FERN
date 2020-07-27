@@ -3,11 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // Resources
-import './index.scss';
+import './_styles/index.scss';
 
 // Components
-import AppContexts from '@components/contexts/AppContexts';
 import App from '@components/App';
+import AppContexts from '@components/contexts/AppContexts';
 
 import * as serviceWorker from './serviceWorker';
 
