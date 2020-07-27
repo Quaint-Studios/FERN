@@ -15,12 +15,12 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
-      },
-      {
         "source": "/api/{v,v1,v1/**}",
         "function": "webApi"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
       }
     ]
   },
