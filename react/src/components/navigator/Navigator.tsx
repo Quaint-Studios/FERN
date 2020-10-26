@@ -1,38 +1,35 @@
 import React from 'react';
 
-import './Navigator.scss';
+import { makeStyles } from '@material-ui/core';
+import Sidebar from './Sidebar';
+import Topbar from './Topbar';
 
-/* import { ActionType as navAction, useNavValue } from '../contexts/data/Nav'; */
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex'
+  },
+  leftDiv: {
+    width: '256px',
+    flexShrink: 0
+  },
+  rightDiv: {
+    flex: '1 1 0%',
+    display: 'flex',
+    flexDirection: 'column'
+  }
+}));
 
-import { Button } from '@material-ui/core';
-import { AccountCircle, Code, Home, Palette } from '@material-ui/icons';
-/* import { useUserValue } from '../contexts/data/User'; */
-import NavBrand from './NavBrand';
-import NavItem from './NavItem';
-
-/**
- * TODO: Add Topbar / Sidebar components with Items to go with each.
- */
-export default function Navigator() {
-  /* const [user, setUser] = useUserValue();
-  const [nav, setNav] = useNavValue();
-  const account = user.user; */
+export default function Navigator({ children }: any) {
+  const classes = useStyles();
 
   return (
-    <div id="navigator">
-      <div id="topbar">
-        <NavBrand />
-        <div className="nav-item-collection">
-          <NavItem className="active" title="Home" icon={Home} href="/" />
-          <NavItem title="Art" icon={Palette} href="/art" />
-          <NavItem title="Code" icon={Code} href="/code" />
-          <div className="account">
-            <Button variant="contained">
-              <AccountCircle />
-              <div className="title">Login</div>
-            </Button>
-          </div>
-        </div>
+    <div className={classes.root}>
+      <div className={classes.leftDiv}>
+        <Sidebar />
+      </div>
+      <div className={classes.rightDiv}>
+        <Topbar />
+        {children}
       </div>
     </div>
   );

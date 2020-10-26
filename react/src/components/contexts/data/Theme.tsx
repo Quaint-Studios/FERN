@@ -1,82 +1,79 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useState } from 'react';
 
-/// Interfaces & Enums
+import { grey } from '@material-ui/core/colors';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import createMixins from '@material-ui/core/styles/createMixins';
 
-/**
- * CONFIG: EXAMPLE
- *
- * The structure of the state.
- *
- * interface IState {
- *  ...
- * }
- */
-
-/**
- * The structure of the JSX props.
- */
-interface IProps {
-  children: any;
+interface IThemeStore {
+  state: boolean;
+  setTheme: (value: boolean) => void;
+  setters: React.Dispatch<React.SetStateAction<boolean>>[];
 }
 
-/**
- * What the dispatch is allowed to do.
- */
-export enum ActionType {
-  TOGGLE = 'toggle'
-}
-
-interface IAction {
-  type: ActionType;
-}
-
-/**
- * The structure for the Context.Provider.
- */
-interface IProvider {
-  reducer: React.Reducer<string, IAction>;
-  initialState: string; // CONFIG: Should match your state type, same with the reducer
-  children: any;
-}
-
-/// Context
-
-/** This is the context */
-const Context = createContext<[string, React.Dispatch<IAction>]>(
-  // tslint:disable-next-line: no-object-literal-type-assertion
-  {} as [string, React.Dispatch<IAction>]
-);
-
-const Provider = ({ reducer, initialState, children }: IProvider) => (
-  <Context.Provider value={useReducer(reducer, initialState)}>
-    {children}
-  </Context.Provider>
-);
-
-/** This is what you use to get the value */
-export const useThemeValue = () => useContext(Context);
-
-/// JSX
+export const themeStore: IThemeStore = {
+  state: true,
+  setTheme(value: boolean) {
+    this.state = value;
+    this.setters.forEach((setter) => setter(this.state));
+  },
+  setters: []
+};
+themeStore.setTheme.bind(themeStore);
 
 /**
  * Context JSX
  */
-export function Theme({ children }: IProps) {
-  const initialState = 'light';
+export function Theme({ children }: any) {
+  const [lightMode, setLightMode] = useState(true);
 
-  const reducer: React.Reducer<string, IAction> = (state, action) => {
-    switch (action.type) {
-      case ActionType.TOGGLE:
-        return state === 'light' ? 'dark' : 'light';
+  if (!themeStore.setters.includes(setLightMode)) {
+    themeStore.setters.push(setLightMode);
+  }
 
-      default:
-        throw new Error('Invalid theme reducer used.');
+  const baseState = {
+    typography: {
+      fontFamily: ['"Roboto"', 'sans-serif'].join(',')
     }
   };
 
-  return (
-    <Provider initialState={initialState} reducer={reducer}>
-      {children}
-    </Provider>
-  );
+  const lightState = createMuiTheme({
+    ...baseState,
+    palette: {
+      type: 'light',
+      primary: {
+        main: '#ffffff',
+        contrastText: '#9e9e9e'
+      },
+      secondary: {
+        light: '#232f3e',
+        main: '#1b2430',
+        contrastText: '#eeeeee'
+      },
+      text: {
+        primary: '#272727',
+        secondary: '#727272' // or #55636b
+      }
+    },
+    overrides: {
+      MuiBadge: {
+        root: {
+          '& .MuiBadge-colorPrimary': {
+            color: '#ffffff',
+            backgroundColor: '#1976d2'
+          }
+        }
+      }
+    }
+  });
+
+  const darkState = createMuiTheme({
+    ...baseState,
+    palette: {
+      type: 'dark'
+    }
+  });
+
+  const initialState = lightMode ? lightState : darkState;
+
+  return <ThemeProvider theme={initialState}>{children}</ThemeProvider>;
 }

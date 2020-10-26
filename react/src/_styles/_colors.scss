@@ -3,7 +3,24 @@ $carbon: #a9a9a9;
 $watermelon: #ff3b3f;
 $neutral: #efefef;
 
+$purple: #5850ec;
+
+$pureWhite: #fff;
 $white: rgb(252, 252, 252);
-$lessWhite: rgb(214, 214, 214);
+$lessWhite: #d6d6d6;
 $black: #272727;
 $gray: #727272;
+$blueGray: #55636b;
+
+
+.lesswhite-bg {
+  background-color: $lessWhite;
+}
+
+$blueGrayLighter: #232f3e;
+$blueGrayDarker: #1b2430;
+$sideNavFontColor: #eeeeee;
+$topNavFontColor: #9e9e9e;
+$content: #f7f9fc none repeat scroll 0% 0%;
+
+$mainSideNavFontColor: #000000de;

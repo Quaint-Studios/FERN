@@ -1,11 +1,18 @@
 import { IRoute } from './Routes';
 
-import Home from '../pages/Home/Home';
+import Dashboard from '../pages/Dashboard/Dashboard';
 import Hire from '../pages/Hire/Hire';
+import Home from '../pages/Home/Home';
 
 // tslint:disable: object-literal-sort-keys
 
 const RootRoutes: IRoute[] = [
+  {
+    name: 'Dashboard',
+    description: `You can view test analytics for this Firebase Express React NodeJS Template (FERN)! As well as view admin-related content.`,
+    path: '/dashboard',
+    component: Dashboard
+  },
   {
     name: 'Firebase Express React NodeJS',
     description: `This is a firebase react express nodejs template. With authentication, user roles, administration panels, and database usage. Implementing the basic CRUD operations.`,

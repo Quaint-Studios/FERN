@@ -1,6 +1,6 @@
-import { handleApiError } from '../v1.utils';
 /* import * as admin from 'firebase-admin'; */
 import { Request, Response } from 'express';
+import { handleApiError } from '../v1.utils';
 
 export async function getTemplate(req: Request, res: Response) {
   try {
@@ -16,3 +16,4 @@ export async function getTemplate(req: Request, res: Response) {
   } catch(err) {
     return handleApiError(res, err);
   }
+}

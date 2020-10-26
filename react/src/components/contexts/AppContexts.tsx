@@ -1,12 +1,14 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
+import '@components/firebase/firebase.main';
+
 import AppLoader from './AppLoader';
 import ContextHandler from './ContextHandler';
 
-import { User } from './data/User';
 import { Nav } from './data/Nav';
 import { Theme } from './data/Theme';
+import { User } from './data/User';
 
 import { IRoute } from '@components/routes/Routes';
 
@@ -22,8 +24,7 @@ export default function AppContexts({ children }: IAppContexts) {
       <User>
         <Theme>
           <Nav>
-            <AppLoader />
-            {children}
+            <AppLoader>{children}</AppLoader>
           </Nav>
         </Theme>
       </User>
